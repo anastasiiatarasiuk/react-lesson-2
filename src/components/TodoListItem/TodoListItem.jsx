@@ -1,8 +1,14 @@
 import style from './TodoListItem.module.css';
 import { Text } from 'components';
-import { RiDeleteBinLine } from 'react-icons/ri';
+import { RiDeleteBinLine, RiEdit2Line } from 'react-icons/ri';
 
-export const TodoListItem = ({ counter, descr, id, removeTodo }) => {
+export const TodoListItem = ({
+  counter,
+  descr,
+  id,
+  removeTodo,
+  toggleForm,
+}) => {
   return (
     <div className={style.box}>
       <Text textAlign="center" marginBottom="20">
@@ -17,6 +23,16 @@ export const TodoListItem = ({ counter, descr, id, removeTodo }) => {
         }}
       >
         <RiDeleteBinLine size={24} />
+      </button>
+
+      <button
+        className={style.editButton}
+        type="button"
+        onClick={() => {
+          toggleForm({ id, text: descr });
+        }}
+      >
+        <RiEdit2Line size={24} />
       </button>
     </div>
   );

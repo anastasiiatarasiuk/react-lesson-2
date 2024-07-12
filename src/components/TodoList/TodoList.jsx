@@ -1,6 +1,6 @@
 import { Grid, GridItem, TodoListItem } from 'components';
 
-export const TodoList = ({ todos, removeTodo }) => {
+export const TodoList = ({ todos, removeTodo, toggleForm }) => {
   return (
     <Grid>
       {todos.map((todo, index) => (
@@ -10,6 +10,7 @@ export const TodoList = ({ todos, removeTodo }) => {
             descr={todo.text}
             id={todo.id}
             removeTodo={removeTodo}
+            toggleForm={toggleForm}
           />
         </GridItem>
       ))}
